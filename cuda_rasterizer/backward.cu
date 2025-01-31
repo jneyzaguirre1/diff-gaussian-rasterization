@@ -492,7 +492,7 @@ renderCUDA(
 			for (int i = 0; i < C; i++)
 				collected_colors[i * BLOCK_SIZE + block.thread_rank()] = colors[coll_id * C + i];
 			if (include_feature) {
-				for (int i = 0; i < F; i++)
+				for (int i = 0; i < F && include_feature; i++)
 					collected_feature[i * BLOCK_SIZE + block.thread_rank()] = language_feature[coll_id * F + i];
 			}
 		}
